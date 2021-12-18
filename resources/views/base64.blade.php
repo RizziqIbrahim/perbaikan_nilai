@@ -10,7 +10,9 @@
     </head>
     <body>
         <div class="container mt-5 ml-5 justify-content-center align-content-center">
-            {{$base64}}
+            <input class="form-control" type="text" id="base64" value="{{$base64}}">
+        
+            <button class="btn btn-success btn-lg" onclick="copy()">Copy!</button>
         
         <div class="alert alert-primary mt-5">
             Copy base 64 diatas
@@ -19,6 +21,15 @@
             <a class="btn btn-primary" href="../../create">pergi ke halaman create</a>
         </div>
         </div>
+        <script type="text/javascript">
+            function copy() {
+                var copyText = document.getElementById("base64");
+                copyText.select();
+                copyText.setSelectionRange(0, 99999);
+                navigator.clipboard.writeText(copyText.value);
+                alert("Copied the text: " + copyText.value);
+            }
+        </script>
         <!-- JavaScript Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>
